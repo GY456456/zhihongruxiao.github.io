@@ -1,0 +1,129 @@
+	
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+		<style>
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			.box{
+				position: absolute;
+				
+			}
+			.box img{
+				float: left;
+				position: absolute;
+				width:414px;
+				height: 896px;
+			}
+			#zp{
+				z-index: 88;
+			}
+			#time{
+				position: absolute;
+				z-index: 100;
+				font-size: 18px;
+				width: 300px;
+				margin-top: 590px;
+				margin-left: 160px;
+				font-weight: 500;
+				color: #343434;
+			}
+			#time1{
+				position: absolute;
+				z-index: 88;
+				font-size: 18px;
+				width: 300px;
+				margin-top: 730px;
+				margin-left: 130px;
+				color: #979797;
+			}
+			#time2{
+				position: absolute;
+				z-index: 88;
+				font-size: 18px;
+				width: 300px;
+				margin-top: 638px;
+				margin-left: 130px;
+				color: #979797;
+				
+			}//离校时间显示位置
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			 
+			   
+			<div>
+				<p id="time1"></p>
+				<img src="img/2.jpg" >	
+			</div>
+			<div>
+				<p id="time2"></p>
+				<img src="img/2.jpg" >	
+			</div>
+		
+			
+			<div onclick="aa()">
+				<p id="time"></p>
+				<img src="img/1.jpg" id="zp"  >
+			</div>
+			
+		</div>
+
+		<script>
+			function aa(){
+					document.getElementById("zp").style.display='none';
+					document.getElementById("time").style.display='none';
+			}
+		</script>
+		<script>
+		    function showTime() {
+		        var date = new Date();
+					
+		        // 年月日
+		        var year = date.getFullYear().toString().padStart(2,0);//加0
+		        var month = (date.getMonth() + 1).toString().padStart(2,0);//加0
+		        var day = date.getDate().toString().padStart(2,0);//加0
+					
+		        // 时分秒
+		        var hour = date.getHours().toString().padStart(2,0);//同上
+		        var minute = date.getMinutes().toString().padStart(2,0);
+		        var second = date.getSeconds().toString().padStart(2,0);
+					
+		        // 实时显示
+		        var element = document.getElementById('time');
+		        element.innerHTML = '<p>' + year + '-' + month + '-' + day + ' ' +hour + ':' + minute + ':' + second;
+		    }
+					
+		    setInterval('showTime()', 1000);
+		</script>
+		<script>
+		    function cba() {
+		        var date = new Date();
+					
+		        // 年月日
+		        var year = date.getFullYear().toString().padStart(2,0);
+		        var month = (date.getMonth() + 1).toString().padStart(2,0);
+		        var day = date.getDate().toString().padStart(2,0);
+					
+		        // 时分秒
+		        var hour = date.getHours().toString().padStart(2,0);
+		        var minute = date.getMinutes().toString().padStart(2,0);
+		        var second = date.getSeconds().toString().padStart(2,0);
+					
+		        // 实时显示
+		        var element = document.getElementById('time1');
+		        element.innerHTML = '<p>' + year + '-' + month + '-' + day + ' ' + hour + ':' + minute + ':' + second;
+		        var element = document.getElementById('time2');//增加离校时间显示
+		        element.innerHTML = '<p>' + year + '-' + month + '-' + day + ' ' + 07+ ':' + 37 + ':' + 26;
+		    }
+					
+		    setInterval('cba()', 1000);
+		</script>
+	</body>
+</html>
